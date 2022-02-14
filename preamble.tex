@@ -1,0 +1,23 @@
+\usepackage{authblk}
+\usepackage{pdfpages}
+\usepackage{siunitx}
+\usepackage{todonotes}
+
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+
+% hyperref should be loaded as late as possible.
+\usepackage{hyperref}
+
+% glossaries should be loaded after hyperref.
+\input{glossary}
+
+\input{front}
+
+% https://tex.stackexchange.com/a/17254/202639
+\makeatletter
+\hypersetup{
+pdftitle={\@title},
+pdfauthor={\@author},
+pdfkeywords={saturation-based theorem proving, simplification ordering, symbol precedence, machine learning, graph convolutional network}
+}
+\makeatother

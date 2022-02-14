@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\input{preamble}
+
+\begin{document}
+
+\maketitle
+
+\todo[inline]{Consider qualifying the text as a thesis proposal or a study.}
+\todo[inline]{Consider listing the supervisors in the title matter.}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\section{Introduction}
+
+Automated theorem proving is a classical field of \gls{ai} \cite{Russell2010}.
+Given a sentence written in a formal system such as the \gls{fol},
+an \gls{atp} searches for a formal proof of the input sentence.
+In the last decades, a number of efficient \glspl{atp} have been implemented,
+together with many search heuristics necessary to navigate the search space.
+These systems are today increasingly used as black-box reasoners in a number of disciplines.
+Such applications include reasoning about all kinds of semantically specified knowledge,
+such as mathematics \cite{Kinyon2013},
+software and hardware verification \cite{Ahrendt2016}\todo{Cite an example of software verification.},
+common-sense reasoning \cite{Pease2010},
+and legal reasoning \cite{Passmore2017}.
+
+Theorem proving based on the saturation paradigm \cite{DBLP:books/el/RV01/BachmairG01} represents the state-of-the-art method for automatically proving conjectures in \gls{fol}.\todo{Justify the importance of FOL.}
+This technology combines several highly non-trivial techniques,
+including the use of refutationally complete logical calculi \cite{DBLP:books/el/RV01/NieuwenhuisR01},
+powerful redundancy criteria \cite{DBLP:books/el/RV01/BachmairG01},
+and advanced indexing \cite{Voronkov1995}.
+
+Despite the ongoing improvements of \gls{atp} systems, with small exceptions,
+\glspl{atp} are still significantly weaker than trained mathematicians in finding proofs in most research domains.
+At the same time, the area of \gls{ml} and, in particular, the use of deep artificial neural networks has recently seen a number of advances which came hand in hand with several breakthroughs in various application domains.
+Examples include \acrlong{cv} \cite{CHAI2021100134},
+\acrlong{nlp} \cite{8949185}, and
+playing computer games \cite{shao2019survey}.
+These recent impressive advances in machine learning manifested in a number of domains suggest to apply such techniques also in the \gls{atp} field.
+
+\section{Related work}
+
+So far, the most successful applications of \gls{ml} in automated theorem proving have been in a high-level external setting of selecting a small number of relevant facts (axioms, definitions, theorems) for proving new conjectures over large formal libraries \cite{DBLP:journals/jar/AlamaHKTU14,DBLP:journals/jar/BlanchetteGKKU16,DBLP:conf/cpp/GauthierK15}.
+This has become known as the premise selection task.
+More recently, \gls{ml} has also started to be used to guide the internal search of the \gls{atp} systems.
+This means providing advice when the \gls{atp} is choosing among many possible inference steps of its non-deterministic proof calculus.
+This is more challenging, because the trained machine learner is typically called thousands of times during the proof search and thus needs to be both fast and efficiently integrated with the core \gls{atp} system.
+In the simpler connection tableau systems such as leanCoP \cite{10.1007/978-3-540-71070-7_23}, supervised learning has been used to choose the next tableau extension step \cite{DBLP:journals/jar/FarberKU21} and first experiments with Monte-Carlo guided proof search and reinforcement learning have been done, recently outperforming the unguided systems by \SI{40}{\percent} on standard benchmarks \cite{DBLP:conf/nips/KaliszykUMO18}.
+In saturation-style provers this has been done by feedback loops for strategy invention \cite{DBLP:journals/aicom/JakubuvU18,DBLP:conf/gcai/SchaferS15} and by using supervised learning \cite{DBLP:conf/cade/JakubuvCOP0U20,DBLP:conf/lpar/LoosISK17} to select the next given clause \cite{McCune2003}.
+
+\todo[inline]{Cite work on simplification orderings (KBO, LPO), precedences (invfreq), GCNs, HPO (?).}
+
+\section{Objectives}
+\todo{Consider leaving out this section.}
+
+My PhD research is conducted under the joint supervision of
+\href{http://people.ciirc.cvut.cz/~sudamar2/}{RNDr. Martin Suda, Ph.D.} and
+\href{https://people.ciirc.cvut.cz/~urbanjo3/}{Mgr. Josef Urban, Ph.D.}.\todo{Consider leaving out the academic titles.}
+
+The main objective of my research is an investigation of novel ways of increasing the performance of state-of-the-art saturation-based \glspl{atp} by using \gls{ml}.
+The \gls{atp} Vampire \cite{Kovacs2013} serves as the primary target system of interest
+namely due to its relative strength
+as testified by the annual \gls{casc} \cite{Sut16}.
+
+While the main goal of the project is improved performance of \gls{atp} systems, the topic is very interesting also from the perspective of general \gls{ai} research. Successful combinations of statistical and symbolic \gls{ai} are still relatively rare, and it is well known that first-order theorem proving is undecidable. This leads to a number of questions about both the theoretical and practical power of existing learning approaches in reasoning tasks. Exploring these limits is the implicit secondary objective of this project.
+
+\section{Results}
+
+The state-of-the-art \gls{fol} \gls{atp} Vampire uses superposition calculus as its inference system.
+The superposition calculus is restricted by a simplification ordering on terms,
+which is usually parameterized by a symbol precedence -- a permutation of the input problem signature.
+
+The results of this research published so far
+comprise the design and evaluation of two methods of recommending symbol precedences:
+
+\begin{enumerate}
+\item Learning Precedences from Simple Symbol Features \cite{DBLP:conf/cade/Bartek020}:
+A precedence recommender based on simple syntactic symbol features published at \gls{paar-2020}
+\item Neural Precedence Recommender \cite{Bartek2021}:
+A precedence recommender based on a \gls{gcn} published at \gls{cade-28}
+\end{enumerate}
+
+Verbatim copies of these two publications form the last part of this document.
+
+%\section{Future work}
+
+%A typical \gls{atp} such as Vampire uses a large number of parameterized heuristics.
+%Given an \gls{atp}, a strategy is a configuration of the prover's parameters.
+%Given an input problem, the performance of the prover may vary greatly depending on the chosen strategy.
+%The resulting space of admissible strategies is typically too large to enumerate in practice.
+
+%The following part of this research project will focus on the problem of strategy synthesis and schedule synthesis.
+
+\bibliographystyle{plain}
+\bibliography{minimum}
+
+\includepdf[pages=-]{papers/2020-paar.pdf}
+\includepdf[pages=-]{papers/2021-cade.pdf}
+
+\end{document}

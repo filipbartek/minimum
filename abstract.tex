@@ -1,0 +1,10 @@
+The state-of-the-art superposition-based theorem provers for \acrlong{fol} rely on simplification orderings on terms to constrain the applicability of inference rules,
+which in turn shapes the ensuing search space.
+The popular Knuth-Bendix simplification ordering is parameterized by symbol precedence—a permutation of the predicate and function symbols of the input problem’s signature.
+Thus, the choice of precedence has an indirect yet often substantial impact on the amount of work required to complete a proof search successfully.
+
+This work describes and evaluates two approaches to the construction of a symbol precedence recommender.
+Each of them uses machine learning to estimate the best possible precedence based on observations of prover performance on a set of problems and random precedences.
+The first approach uses a small set of simple human-engineered symbol features.
+The second approach uses a \acrfull{gcn} to extract meaningful symbol embeddings from the graph structure of the input problem.
+When coupled with the theorem prover Vampire and evaluated on the \acrshort{tptp} problem library, the \acrshort{gcn}-based recommender is found to outperform a state-of-the-art heuristic by more than \SI{4}{\percent} on unseen problems.
