@@ -1,5 +1,8 @@
 \usepackage{glossaries}
 
+% https://tex.stackexchange.com/q/25805/202639
+\glsdisablehyper
+
 \newacronym{ai}{AI}{artificial intelligence}
 \newacronym{ann}{ANN}{artificial \acrlong{nn}}
 \newacronym{atp}{ATP}{automated theorem prover}
@@ -29,7 +32,7 @@
 \newacronym{json}{JSON}{JavaScript Object Notation}
 \newacronym{kbo}{KBO}{Knuth-Bendix ordering}
 \newacronym{lpo}{LPO}{lexicographic path ordering}
-\newacronym{ml}{ML}{machine learning}
+%\newacronym{ml}{ML}{machine learning}
 \newacronym{nlp}{NLP}{natural language processing}
 \newacronym{nn}{NN}{neural network}
 
@@ -51,4 +54,9 @@
 name={simplification ordering on terms},
 description={},
 plural={simplification orderings on terms}
+}
+
+\newglossaryentry{ml}{
+name={machine learning},
+description={}
 }
