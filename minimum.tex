@@ -47,13 +47,13 @@ These recent impressive advances in machine learning manifested in a number of d
 
 \section{Related work}
 
-So far, the most successful applications of \gls{ml} in automated theorem proving have been in a high-level external setting of selecting a small number of relevant facts (axioms, definitions, theorems) for proving new conjectures over large formal libraries \cite{DBLP:journals/jar/AlamaHKTU14,DBLP:journals/jar/BlanchetteGKKU16,DBLP:conf/cpp/GauthierK15}.
+Thus far, the most successful applications of \gls{ml} in automated theorem proving have been in a high-level external setting of selecting a small number of relevant facts (axioms, definitions, theorems) for proving new conjectures over large formal libraries \cite{DBLP:journals/jar/AlamaHKTU14,DBLP:journals/jar/BlanchetteGKKU16,DBLP:conf/cpp/GauthierK15}.
 This has become known as the premise selection task.
 More recently, \gls{ml} has also started to be used to guide the internal search of the \gls{atp} systems.
 This means providing advice when the \gls{atp} is choosing among many possible inference steps of its non-deterministic proof calculus.
 This is more challenging, because the trained machine learner is typically called thousands of times during the proof search and thus needs to be both fast and efficiently integrated with the core \gls{atp} system.
 In the simpler connection tableau systems such as leanCoP \cite{10.1007/978-3-540-71070-7_23}, supervised learning has been used to choose the next tableau extension step \cite{DBLP:journals/jar/FarberKU21} and first experiments with Monte-Carlo guided proof search and reinforcement learning have been done, recently outperforming the unguided systems by \SI{40}{\percent} on standard benchmarks \cite{DBLP:conf/nips/KaliszykUMO18}.
-In saturation-style provers this has been done by feedback loops for strategy invention \cite{DBLP:journals/aicom/JakubuvU18,DBLP:conf/gcai/SchaferS15} and by using supervised learning \cite{DBLP:conf/cade/JakubuvCOP0U20,DBLP:conf/lpar/LoosISK17} to select the next given clause \cite{McCune2003}.
+In saturation-style provers, this has been done by feedback loops for strategy invention \cite{DBLP:journals/aicom/JakubuvU18,DBLP:conf/gcai/SchaferS15} and by using supervised learning \cite{DBLP:conf/cade/JakubuvCOP0U20,DBLP:conf/lpar/LoosISK17} to select the next given clause \cite{McCune2003}.
 
 \todo[inline]{Cite work on simplification orderings (KBO, LPO), precedences (invfreq), GCNs, HPO (?).}
 
@@ -69,7 +69,8 @@ The \gls{atp} Vampire \cite{DBLP:conf/cav/KovacsV13} serves as the primary targe
 namely due to its relative strength
 as testified by the annual \gls{casc} \cite{Sut16}.
 
-While the main goal of the project is improved performance of \gls{atp} systems, the topic is very interesting also from the perspective of general \gls{ai} research. Successful combinations of statistical and symbolic \gls{ai} are still relatively rare, and it is well known that first-order theorem proving is undecidable. This leads to a number of questions about both the theoretical and practical power of existing learning approaches in reasoning tasks. Exploring these limits is the implicit secondary objective of this project.
+While the main goal of the project is the improved performance of \gls{atp} systems,
+the topic is very interesting also from the perspective of general \gls{ai} research. Successful combinations of statistical and symbolic \gls{ai} are still relatively rare, and it is well known that first-order theorem proving is undecidable. This leads to a number of questions about both the theoretical and practical power of existing learning approaches in reasoning tasks. Exploring these limits is the implicit secondary objective of this project.
 
 \section{Results}
 
@@ -83,13 +84,13 @@ comprise the design and evaluation of two methods of recommending symbol precede
 \begin{enumerate}
 \item Learning Precedences from Simple Symbol Features \cite{DBLP:conf/cade/Bartek020}:
 A precedence recommender based on simple syntactic symbol features published at \gls{paar-2020}
-\item Neural Precedence Recommender \cite{Bartek2021}:
+\item Neural Precedence Recommender \cite{DBLP:conf/cade/Bartek021}:
 A precedence recommender based on a \gls{gcn} published at \gls{cade-28}
 \end{enumerate}
 
 Verbatim copies of these two publications form the last part of this document.
 
-\todo[inline]{Consider adding section Future work. While it is not required by the specification, it may be interesting for the readers, and Zar included such section in his thesis proposal.}
+\todo[inline]{Consider adding section Future work. While it is not required by the specification, it may be interesting for the reader, and Zar included such a section in his thesis proposal.}
 
 %\section{Future work}
 
@@ -100,8 +101,7 @@ Verbatim copies of these two publications form the last part of this document.
 
 %The following part of this research project will focus on the problem of strategy synthesis and schedule synthesis.
 
-\bibliographystyle{plain}
-\bibliography{minimum}
+\printbibliography
 
 \includepdf[pages=-]{papers/2020-paar.pdf}
 \includepdf[pages=-]{papers/2021-cade.pdf}

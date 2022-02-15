@@ -3,6 +3,9 @@
 \usepackage{siunitx}
 \usepackage{todonotes}
 
+\usepackage[url=false]{biblatex}
+\addbibresource{minimum.bib}
+
 \newcommand{\email}[1]{\href{mailto:#1}{#1}}
 
 % hyperref should be loaded as late as possible.
@@ -17,7 +20,8 @@
 \makeatletter
 \hypersetup{
 pdftitle={\@title},
-pdfauthor={\@author},
+%pdfauthor={\@author},
+pdfauthor={Filip Bártek},
 pdfkeywords={saturation-based theorem proving, simplification ordering, symbol precedence, machine learning, graph convolutional network}
 }
 \makeatother
