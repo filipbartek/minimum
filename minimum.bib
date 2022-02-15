@@ -1,23 +1,37 @@
 @string{lncs = "LNCS"}
 
-@Inbook{Kinyon2013,
-author="Kinyon, Michael
-and Veroff, Robert
-and Vojt{\v{e}}chovsk{\'y}, Petr",
-editor="Bonacina, Maria Paola
-and Stickel, Mark E.",
-title="Loops with Abelian Inner Mapping Groups: An Application of Automated Deduction",
-bookTitle="Automated Reasoning and Mathematics: Essays in Memory of William W. McCune",
-year="2013",
-publisher="Springer Berlin Heidelberg",
-address="Berlin, Heidelberg",
-pages="151--164",
-abstract="We describe a large-scale project in applied automated deduction concerned with the following problem of considerable interest in loop theory: If Q is a loop with commuting inner mappings, does it follow that Q modulo its center is a group and Q modulo its nucleus is an abelian group? This problem has been answered affirmatively in several varieties of loops. The solution usually involves sophisticated techniques of automated deduction, and the resulting derivations are very long, often with no higher-level human proofs available.",
-isbn="978-3-642-36675-8",
-doi="10.1007/978-3-642-36675-8_8",
-url="https://doi.org/10.1007/978-3-642-36675-8_8",
-series=lncs,
-volume=7888
+@inproceedings{DBLP:conf/birthday/KinyonVV13,
+  author    = {Michael K. Kinyon and
+               Robert Veroff and
+               Petr Vojtechovsk{\'{y}}},
+  title     = {Loops with Abelian Inner Mapping Groups: An Application of Automated
+               Deduction},
+  booktitle = {Automated Reasoning and Mathematics - Essays in Memory of William
+               W. McCune},
+  pages     = {151--164},
+  year      = {2013},
+  crossref  = {DBLP:conf/birthday/2013mccune},
+  url       = {https://doi.org/10.1007/978-3-642-36675-8\_8},
+  doi       = {10.1007/978-3-642-36675-8\_8},
+  timestamp = {Sat, 19 Oct 2019 20:29:08 +0200},
+  biburl    = {https://dblp.org/rec/conf/birthday/KinyonVV13.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@proceedings{DBLP:conf/birthday/2013mccune,
+  editor    = {Maria Paola Bonacina and
+               Mark E. Stickel},
+  title     = {Automated Reasoning and Mathematics - Essays in Memory of William
+               W. McCune},
+  series    = lncs,
+  volume    = {7788},
+  publisher = {Springer},
+  year      = {2013},
+  url       = {https://doi.org/10.1007/978-3-642-36675-8},
+  doi       = {10.1007/978-3-642-36675-8},
+  isbn      = {978-3-642-36674-1},
+  timestamp = {Tue, 15 Feb 2022 15:51:27 +0100},
+  biburl    = {https://dblp.org/rec/conf/birthday/2013mccune.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 @book{Ahrendt2016,
@@ -69,18 +83,36 @@ url="https://link.springer.com/chapter/10.1007/978-3-319-63046-5_3"
 }
 
 % Vampire
-@inproceedings{Kovacs2013,
-   abstract = {In this paper we give a short introduction in first-order theorem proving and the use of the theorem prover Vampire. We discuss the superposition calculus and explain the key concepts of saturation and redundancy elimination, present saturation algorithms and preprocessing, and demonstrate how these concepts are implemented in Vampire. Further, we also cover more recent topics and features of Vampire designed for advanced applications, including satisfiability checking, theory reasoning, interpolation, consequence elimination, and program analysis. © 2013 Springer-Verlag.},
-   author = {Laura Kovács and Andrei Voronkov},
-   doi = {10.1007/978-3-642-39799-8_1},
-   isbn = {9783642397981},
-   issn = {03029743},
-   journal = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
-   pages = {1-35},
-   title = {First-Order Theorem Proving and {V}ampire},
-   volume = {8044 LNCS},
-   url = {http://link.springer.com/10.1007/978-3-642-39799-8_1},
-   year = {2013},
+@inproceedings{DBLP:conf/cav/KovacsV13,
+  author    = {Laura Kov{\'{a}}cs and
+               Andrei Voronkov},
+  title     = {First-Order Theorem Proving and Vampire},
+  booktitle = {Computer Aided Verification - 25th International Conference, {CAV}
+               2013, Saint Petersburg, Russia, July 13-19, 2013. Proceedings},
+  pages     = {1--35},
+  year      = {2013},
+  crossref  = {DBLP:conf/cav/2013},
+  url       = {https://doi.org/10.1007/978-3-642-39799-8\_1},
+  doi       = {10.1007/978-3-642-39799-8\_1},
+  timestamp = {Tue, 14 May 2019 10:00:43 +0200},
+  biburl    = {https://dblp.org/rec/conf/cav/KovacsV13.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@proceedings{DBLP:conf/cav/2013,
+  editor    = {Natasha Sharygina and
+               Helmut Veith},
+  title     = {Computer Aided Verification - 25th International Conference, {CAV}
+               2013, Saint Petersburg, Russia, July 13-19, 2013. Proceedings},
+  series    = lncs,
+  volume    = {8044},
+  publisher = {Springer},
+  year      = {2013},
+  url       = {https://doi.org/10.1007/978-3-642-39799-8},
+  doi       = {10.1007/978-3-642-39799-8},
+  isbn      = {978-3-642-39798-1},
+  timestamp = {Tue, 15 Feb 2022 15:54:15 +0100},
+  biburl    = {https://dblp.org/rec/conf/cav/2013.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 % CASC
@@ -460,7 +492,7 @@ isbn="978-3-540-71070-7"
                Viorica Sofronie{-}Stokkermans},
   title     = {Automated Reasoning - 10th International Joint Conference, {IJCAR}
                2020, Paris, France, July 1-4, 2020, Proceedings, Part {II}},
-  series    = {Lecture Notes in Computer Science},
+  series    = lncs,
   volume    = {12167},
   publisher = {Springer},
   year      = {2020},
@@ -504,7 +536,7 @@ isbn="978-3-540-71070-7"
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
-@generic{McCune2003,
+@manual{McCune2003,
    author = {William McCune},
    month = {8},
    title = {Otter 3.3 Reference Manual},
