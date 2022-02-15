@@ -9,3 +9,5 @@
 *.spl
 *.synctex.gz
 *.toc
+
+/minimum.pdf
