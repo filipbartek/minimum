@@ -6,6 +6,24 @@
 
 \input{tex/preamble}
 
+% hyperref should be loaded as late as possible.
+\usepackage[colorlinks,urlcolor=blue,citecolor=blue]{hyperref}
+
+% glossaries should be loaded after hyperref.
+\input{tex/glossary}
+
+\input{tex/front}
+
+% https://tex.stackexchange.com/a/17254/202639
+\makeatletter
+\hypersetup{
+pdftitle={\@title},
+%pdfauthor={\@author},
+pdfauthor={Filip Bártek},
+pdfkeywords={saturation-based theorem proving, simplification ordering, symbol precedence, machine learning, graph convolutional network}
+}
+\makeatother
+
 \begin{document}
 
 \maketitle

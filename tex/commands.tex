@@ -1,0 +1,38 @@
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+
+% Multi-letter identifier
+\newcommand{\mli}[1]{\mathit{#1}}
+
+\DeclareMathOperator{\re}{\mathbb{R}}
+\DeclareMathOperator{\nat}{\mathbb{N}}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\sigmoid}{sigmoid}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator{\argsort}{argsort}
+\newcommand{\inv}[1]{#1^{-1}}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\SquareBracket}{[}{]}
+\DeclarePairedDelimiter{\Parentheses}{(}{)}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand{\DotProd}[2]{\left<#1,#2\right>}
+\newcommand{\Better}[3]{#1 \prec_{#3} #2}
+\newcommand{\Prob}[1]{\mathrm{Prob}(#1)}
+
+\DeclareMathOperator{\symbols}{\Sigma}
+\newcommand{\Problems}[1]{\mathcal{P}_{#1}}
+\DeclareMathOperator{\cnf}{\Problems{\mathrm{CNF}}}
+\DeclareMathOperator{\ProblemsTptp}{\Problems{0}}
+\DeclareMathOperator{\ProblemsTrain}{\Problems{\mathrm{train}}}
+\DeclareMathOperator{\ProblemsTrainEx}{\ProblemsTrain'}
+\DeclareMathOperator{\ProblemsVal}{\Problems{\mathrm{val}}}
+\DeclareMathOperator{\ProblemsValEx}{\ProblemsVal'}
+\newcommand{\signature}[1]{\Sigma_#1}
+
+% Precedences
+\newcommand{\PrecBetter}{\pi}
+\newcommand{\PrecWorse}{\rho}
+
+\newcommand{\Vampire}{Vampire}
+
+\newcommand{\loss}{\ell}
+% Inspiration: The Elements of Statistical Learning, p. 120

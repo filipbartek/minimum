@@ -1,27 +1,16 @@
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{authblk}
+\usepackage{csquotes}
+\usepackage[pdf]{graphviz}
+\usepackage{mathtools}
 \usepackage{pdfpages}
-\usepackage{siunitx}
+\usepackage[detect-weight=true]{siunitx}
+\usepackage{stmaryrd}
 \usepackage{todonotes}
 
 \usepackage[url=false]{biblatex}
 \addbibresource{minimum.bib}
 
-\newcommand{\email}[1]{\href{mailto:#1}{#1}}
-
-% hyperref should be loaded as late as possible.
-\usepackage[colorlinks,urlcolor=blue,citecolor=blue]{hyperref}
-
-% glossaries should be loaded after hyperref.
-\input{tex/glossary}
-
-\input{tex/front}
-
-% https://tex.stackexchange.com/a/17254/202639
-\makeatletter
-\hypersetup{
-pdftitle={\@title},
-%pdfauthor={\@author},
-pdfauthor={Filip Bártek},
-pdfkeywords={saturation-based theorem proving, simplification ordering, symbol precedence, machine learning, graph convolutional network}
-}
-\makeatother
+\input{tex/commands}
