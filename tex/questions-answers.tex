@@ -4,10 +4,22 @@ What is the relation between the results presented in the Table 1 of the paper o
 \end{block}
 \only<1>{\includegraphics[page=14,viewport=80 350 380 430,clip]{papers/2021-cade}}
 %\includepdf[pages=14,viewport=80 350 380 430,scale=\textbf{}.1,clip,frame]{papers/2021-cade}
-\only<2>{\begin{exampleblock}{Answer}
+\only<2>{
+\begin{columns}
+\begin{column}{0.5\textwidth}
 \centering
-\includegraphics[scale=.5]{data/ast.pdf}
-\end{exampleblock}}
+\includegraphics[scale=.5]{data/ast-scatter.pdf}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Total: 3702
+\item $\operatorname{ast}(\mathrm{gcn}) = \operatorname{ast}(\mathrm{freq})$: 1899
+\item $\operatorname{ast}(\mathrm{gcn}) < \operatorname{ast}(\mathrm{freq})$: 981
+\item $\operatorname{ast}(\mathrm{gcn}) > \operatorname{ast}(\mathrm{freq})$: 822
+\end{itemize}
+\end{column}
+\end{columns}
+}
 \end{frame}
 \begin{frame}{Question 2}
 \begin{block}{Question}
