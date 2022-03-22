@@ -57,7 +57,7 @@
 
 \input{tex/example}
 
-\section{Context}
+\section{Precedence recommendation}
 
 \begin{frame}
 \frametitle{\Gls{fol} with equality}
@@ -76,19 +76,47 @@ Examples of clauses:
 \end{frame}
 
 \begin{frame}
-\frametitle{\Gls{fol} with equality}
-Example problem:
-\begin{align*}
-&G(a, b)\\
-&G(c, b)\\
-&G(c, d)\\
-&\lnot G(x, y) \lor G(y, x) \tag{symmetry}\\
-&\lnot G(x, y) \lor \lnot G(y, z) \lor G(x, z) \tag{transitivity}\\
-&\lnot G(d, a) \tag{negated conjecture}
-\end{align*}
+\frametitle{Precedence recommendation}
+\begin{itemize}
+\item Input: a \gls{fol} problem in \gls{cnf}
+\item Output: a symbol precedence
+\begin{itemize}
+\item Try to minimize the runtime.
+\end{itemize}
+\item Target algorithm: an \gls{atp}
+\begin{itemize}
+\item Fixed configuration
+\item Ordered resolution
+\item Superposition calculus
+\end{itemize}
+\item Challenge: signatures unaligned across problems
+\note{In our example problem, we could replace $+$ with $f$ to obtain an equivalent problem.}
+\item State of the art: simple heuristics (for example \texttt{invfreq})
+\end{itemize}
 \end{frame}
 
-\section{Recommender}
+\section{Our recommender}
+
+\begin{frame}
+\frametitle{Our precedence recommender}
+\begin{itemize}
+\item \Acrlong{ml} from \gls{atp} runs with random precedences
+\item Generalizes across problems
+\begin{itemize}
+\item Symbol semantics
+\item Signature length
+\end{itemize}
+\item Approach:
+\begin{itemize}
+\item \Acrshort{ml} core: \Gls{gcn}
+\item Nested proxy tasks:
+\begin{itemize}
+\item Precedence pair classification
+\item Symbol cost regression
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
 
 \begin{frame}
 \frametitle{Graph representation of a \acrshort{cnf} problem}
