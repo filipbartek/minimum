@@ -10,4 +10,12 @@
 *.synctex.gz
 *.toc
 
+*.bcf
+*.nav
+*.xml
+*.snm
+
 /minimum.pdf
+
+*.dot
+/*.pdf
