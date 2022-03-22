@@ -38,15 +38,16 @@ Attempt to infer a contradiction.
 \end{itemize}}
 }
 
-\only<3>{Transform the axioms into rewrite rules:
+\only<3-4>{Transform the axioms into rewrite rules:
 \begin{align*}
 0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
 x + s(y) &\to s(x + y) \tag{$\RulePS$}\\
 x + 0 &\to x \tag{$\RuleN{0}$}
 \end{align*}
 \note{This orientation corresponds to LPO($+ > s$) and KBO($+ > s$).}
+}
 
-Rewrite $\NegConj$ using $\RulePS$ and $\RuleN{0}$:
+\only<4>{Rewrite $\NegConj$ using $\RulePS$ and $\RuleN{0}$:
 \begin{align*}
 \underline{0 + s(s(0))} &\neq s(s(0)) &\rewrite{\RulePS}\\
 s(\underline{0 + s(0)}) &\neq s(s(0)) &\rewrite{\RulePS}\\
@@ -54,39 +55,19 @@ s(s(\underline{0 + 0})) &\neq s(s(0)) &\rewrite{\RuleN{0}}\\
 s(s(0)) &\neq s(s(0)) &
 \end{align*}}
 
-\only<4-6>{What if we oriented $\AxiomS$ in the opposite direction?}
-
-\only<4-5>{\begin{align*}
+\only<5-6>{What if we oriented $\AxiomS$ from right to left?
+\begin{align*}
 0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
-s(x + y) &\to x + s(y) \tag{$\RuleSP$}\\
+x + s(y) &\leftarrow s(x + y) \tag{$\RuleSP$}\\
 x + 0 &\to x \tag{$\RuleN{0}$}
 \end{align*}
 
 \note{This orientation corresponds to LPO($s > +$) and KBO($s > +$).}
 }
 
-\only<5>{Rewrite $s(x + 0)$ with $\RuleSP$ and $\RuleN{0}$:
+\only<6>{Completion procedure yields an infinite sequence of new rules:
 \begin{align*}
-\underline{s(x + 0)} &\rewrite{\RuleSP} x + s(0)\\
-s(\underline{x + 0}) &\rewrite{\RuleN{0}} s(x)
-\end{align*}
-\note{\\We obtain $\theta l_{\RuleSP} = s(x + 0)$ by unifying the subterm $l_{\RuleSP}|_p = x + y$
-with $l_{\RuleN{0}} = x + 0$: $\theta l_{\RuleSP}|_p = \theta l_{\RuleN{0}} = x + 0$.}
-
-Add a new rule to make the rewriting system more complete:
-\begin{align*}
-x + s(0) \to s(x) \tag{$\RuleN{1}$}\\
-\end{align*}}
-
-\only<6>{\begin{align*}
-0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
-s(x + y) &\to x + s(y) \tag{$\RuleSP$}\\
-x + 0 &\to x \tag{$\RuleN{0}$}\\
-x + s(0) &\to s(x) \tag{$\RuleN{1}$}
-\end{align*}
-
-In general, rewriting $s(x + s^n(0))$ with $\RuleSP$ and $\RuleN{n}$ yields a new rule $\RuleN{(n+1)}$:
-\begin{align*}
+x + s(0) &\to s(x) \tag{$\RuleN{1}$}\\
 x + s(s(0)) &\to s(s(x)) \tag{$\RuleN{2}$}\\
 &\vdots\\
 x + s^n(0) &\to s^n(x) \tag{$\RuleN{n}$}\\
