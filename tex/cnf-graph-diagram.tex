@@ -1,0 +1,76 @@
+\digraph[scale=0.4]{GcnExampleX}{
+graph [ranksep=0.3];
+node [fontsize=14, shape=record, height=0, width=0];
+edge [fontsize=14, dir=both, arrowtail=empty];
+problem [label=<problem|z+0=z &and; x+s(y)=s(x+y)>];
+{ rank = same;
+c0 [label="clause|z+0=z"];
+c1 [label=<clause|x+s(y)=s(x+y)>];
+%c2 [label=<clause|0+s(0)&ne;s(0)>];
+}
+problem -> c0;
+problem -> c1;
+%problem -> c2;
+{ rank = same;
+t0 [label="equality atom|z+0=z"];
+t1 [label="equality atom|x+s(y)=s(x+y)"];
+%t2 [label="equality atom|0+s(0)=s(0)"];
+}
+c0 -> t0 [label=" pos "];
+c1 -> t1 [label=" pos "];
+%c2 -> t2 [label=" neg "];
+{ rank = same;
+tpxz [label="term|z+0"];
+tpxsy [label="term|x+s(y)"];
+tspxy [label="term|s(x+y)"];
+%tpzsz [label="term|0+s(0)"];
+%tsz [label="term|s(0)"];
+}
+t0 -> tpxz;
+tpxz -> fp;
+tpxz0 [label="argument|1"];
+tpxz1 [label="argument|2"];
+tpxz -> tpxz0;
+tpxz0 -> tpxz1;
+tpxz0 -> vx0;
+tpxz1 -> tz;
+t0 -> vx0;
+t1 -> tpxsy;
+tpxsy0 [label="argument|1"];
+tpxsy1 [label="argument|2"];
+tpxsy -> fp;
+tpxsy -> tpxsy0;
+tpxsy0 -> tpxsy1;
+tpxsy0 -> vx;
+tpxsy1 -> tsy;
+t1 -> tspxy;
+tspxy0 [label="argument|1"];
+tspxy -> fs;
+tspxy -> tspxy0;
+tspxy0 -> tpxy;
+%t2 -> tpzsz;
+%t2 -> tsz;
+%tpzsz -> fp;
+%tsz -> fs;
+%{ rank = same;
+tsy [label="term|s(y)"];
+tpxy [label="term|x+y"];
+%}
+tsy0 [label="argument|1"];
+tsy -> tsy0;
+tsy0 -> vy;
+tpxy0 [label="argument|1"];
+tpxy1 [label="argument|2"];
+tpxy -> tpxy0;
+tpxy0 -> tpxy1;
+tpxy0 -> vx;
+tpxy1 -> vy;
+tz [label="term|0"];
+fp [label="function|+"];
+fs [label="function|s"];
+fz [label="function|0"];
+vx [label="variable|x"];
+vx0 [label="variable|z"];
+vy [label="variable|y"];
+tz -> fz;
+}

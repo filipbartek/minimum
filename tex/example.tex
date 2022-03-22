@@ -1,0 +1,118 @@
+\begin{frame}[t]
+\frametitle{Equational reasoning}
+\only<1>{Axioms of addition of natural numbers:
+\begin{align*}
+x + s(y) &= s(x + y) \tag{$\AxiomS$}\\
+x + 0 &= x \tag{$\AxiomZ$}
+\end{align*}
+\todo{Consider using $f$ instead of $+$ to avoid confusion.}
+\note{\begin{itemize}
+\item $x, y$ are variables. Each equality is implicitly universally quantified.
+\item $+$ is a binary addition function.
+\item $s$ is a unary successor function.
+\item $0$ is a constant.
+\item Natural number $n$ is canonically represented by the term $s^n(0)$.
+\item Another axiom we could add: $s(x) \neq 0$
+\item $\AxiomS$ and $\AxiomZ$ form equational theory $E$.
+$C$ is valid in $E$ because it is satisfied by all the models of $E$.
+\end{itemize}}
+
+Conjecture:
+\begin{align*}
+0 + s(s(0)) &= s(s(0)) \tag{$\Conj$}
+\end{align*}
+
+How can we prove that $C$ follows from $\AxiomS$ and $\AxiomZ$?}
+
+\only<2>{Negate the conjecture:
+\begin{align*}
+0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
+x + s(y) &= s(x + y) \tag{$\AxiomS$}\\
+x + 0 &= x \tag{$\AxiomZ$}
+\end{align*}
+Attempt to infer a contradiction.
+
+\note{Proof by contradiction:
+\begin{itemize}
+\item Assume positive premises and negated conjecture.
+\item Infer a trivial contradiction.
+\end{itemize}}
+}
+
+\only<3>{Transform the axioms into rewrite rules:
+\begin{align*}
+0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
+x + s(y) &\to s(x + y) \tag{$\RulePS$}\\
+x + 0 &\to x \tag{$\RuleN{0}$}
+\end{align*}
+\note{This orientation corresponds to LPO($+ > s$) and KBO($+ > s$).}
+
+Rewrite $\NegConj$ using $\RulePS$ and $\RuleN{0}$:
+\begin{align*}
+\underline{0 + s(s(0))} &\neq s(s(0)) &\rewrite{\RulePS}\\
+s(\underline{0 + s(0)}) &\neq s(s(0)) &\rewrite{\RulePS}\\
+s(s(\underline{0 + 0})) &\neq s(s(0)) &\rewrite{\RuleN{0}}\\
+s(s(0)) &\neq s(s(0)) &
+\end{align*}}
+
+\only<4-6>{What if we oriented $\AxiomS$ in the opposite direction?}
+
+\only<4-5>{\begin{align*}
+0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
+s(x + y) &\to x + s(y) \tag{$\RuleSP$}\\
+x + 0 &\to x \tag{$\RuleN{0}$}
+\end{align*}
+
+\note{This orientation corresponds to LPO($s > +$) and KBO($s > +$).}
+}
+
+\only<5>{Rewrite $s(x + 0)$ with $\RuleSP$ and $\RuleN{0}$:
+\begin{align*}
+\underline{s(x + 0)} &\rewrite{\RuleSP} x + s(0)\\
+s(\underline{x + 0}) &\rewrite{\RuleN{0}} s(x)
+\end{align*}
+\note{\\We obtain $\theta l_{\RuleSP} = s(x + 0)$ by unifying the subterm $l_{\RuleSP}|_p = x + y$
+with $l_{\RuleN{0}} = x + 0$: $\theta l_{\RuleSP}|_p = \theta l_{\RuleN{0}} = x + 0$.}
+
+Add a new rule to make the rewriting system more complete:
+\begin{align*}
+x + s(0) \to s(x) \tag{$\RuleN{1}$}\\
+\end{align*}}
+
+\only<6>{\begin{align*}
+0 + s(s(0)) &\neq s(s(0)) \tag{$\NegConj$}\\
+s(x + y) &\to x + s(y) \tag{$\RuleSP$}\\
+x + 0 &\to x \tag{$\RuleN{0}$}\\
+x + s(0) &\to s(x) \tag{$\RuleN{1}$}
+\end{align*}
+
+In general, rewriting $s(x + s^n(0))$ with $\RuleSP$ and $\RuleN{n}$ yields a new rule $\RuleN{(n+1)}$:
+\begin{align*}
+x + s(s(0)) &\to s(s(x)) \tag{$\RuleN{2}$}\\
+&\vdots\\
+x + s^n(0) &\to s^n(x) \tag{$\RuleN{n}$}\\
+&\vdots
+\end{align*}
+
+\note{Once we have generated $\RuleN{2}$, we can rewrite $\NegConj$ and solve the problem.
+A goal-oriented clause selection would favor this inference.}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}
+\item $\RulePS$ solves the problem deterministically.
+\item $\RuleSP$ may lead to an infinite sequence of inferences.
+\end{itemize}
+\pause
+In an \acrfull{atp}, the orientation of equations depends on the \emph{simplification term ordering}
+such as the \acrfull{kbo},
+which is defined by a \emph{symbol precedence}.
+\note{Using LPO yields the same term order.}
+
+\begin{itemize}
+\item If $+ > s$, then $x + s(y) >_{\mli{kbo}} s(x + y)$ ($\RulePS$).
+\item If $s > +$, then $s(x + y) >_{\mli{kbo}} x + s(y)$ ($\RuleSP$).
+\end{itemize}
+\end{frame}
