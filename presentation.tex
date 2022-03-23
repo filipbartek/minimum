@@ -423,4 +423,57 @@ x + (x * (x' + y')) &\approx x * (x' + s(y')) \tag{unorientable}
 \end{enumerate}
 \end{frame}
 
+\section{Superposition calculus}
+
+\begin{frame}
+\frametitle{Superposition in Vampire}
+Selection selects at least one literal in each non-empty clause.
+
+For example, it may select all maximal literals.
+
+\infer{\sigma(L[r] \lor C \lor D)}{\underline{l = r} \lor C & \underline{L[s]} \lor D}
+
+where:
+
+\begin{itemize}
+\item $\sigma = \mli{mgu}(l, s)$
+\item $s$ is not a variable
+\item $\sigma(r) \ngeq \sigma(l)$
+\item $L$ is not an equality literal
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Positive superposition}
+\infer{\sigma(C \lor D \lor u[t] = v)}{C \lor s = t & D \lor u[s'] = v}
+
+where:
+
+\begin{itemize}
+\item $\sigma = \mli{mgu}(s, s')$
+\item $\sigma(t) \ngeq \sigma(s)$
+\item $\sigma(v) \ngeq \sigma(u)$
+\item $\sigma(s = t)$ is strictly maximal with respect to $\sigma(C)$, and $C$ contains no selected literal
+\item $\sigma(u = v)$ is strictly maximal with respect to $\sigma(D)$, and $D$ contains no selected literal
+\item $s'$ is not a variable
+\item $\sigma(s = t) \ngeq \sigma(u = v)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Negative superposition}
+\infer{\sigma(C \lor D \lor u[t] \neq v)}{C \lor s = t & D \lor u[s'] \neq v}
+
+where:
+
+\begin{itemize}
+\item $\sigma = \mli{mgu}(s, s')$
+\item $\sigma(t) \ngeq \sigma(s)$
+\item $\sigma(v) \ngeq \sigma(u)$
+\item $\sigma(s = t)$ is strictly maximal with respect to $\sigma(C)$, and $C$ contains no selected literal
+\item $u \neq v$ is selected, or nothing is selected in $D \lor u \neq v$ and $\sigma(u \neq v)$ is maximal with respect to $\sigma(D)$
+\item $s'$ is not a variable
+\end{itemize}
+\end{frame}
+
 \end{document}
